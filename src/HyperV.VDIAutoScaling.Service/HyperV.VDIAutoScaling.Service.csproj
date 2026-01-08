@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\HyperV.VDIAutoScaling.Adapters\HyperV.VDIAutoScaling.Adapters.csproj" />
     <ProjectReference Include="..\HyperV.VDIAutoScaling.Core\HyperV.VDIAutoScaling.Core.csproj" />
   </ItemGroup>
 </Project>
