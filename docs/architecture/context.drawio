@@ -1,0 +1,74 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0" version="29.3.0">
+  <diagram name="Seite-1" id="a9SdGltjjMbsnPDMoGAI">
+    <mxGraphModel dx="1418" dy="746" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="fYslX2wZeY6poqH28ZIS-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 36px;&quot;&gt;Context&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="368" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="fYslX2wZeY6poqH28ZIS-8" edge="1" parent="1" source="fYslX2wZeY6poqH28ZIS-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="fYslX2wZeY6poqH28ZIS-7" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fYslX2wZeY6poqH28ZIS-13" connectable="0" parent="fYslX2wZeY6poqH28ZIS-8" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Read Configuration" vertex="1">
+          <mxGeometry relative="1" x="-0.0842" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fYslX2wZeY6poqH28ZIS-9" edge="1" parent="1" source="fYslX2wZeY6poqH28ZIS-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="fYslX2wZeY6poqH28ZIS-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fYslX2wZeY6poqH28ZIS-15" connectable="0" parent="fYslX2wZeY6poqH28ZIS-9" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Query Sessions / Pools" vertex="1">
+          <mxGeometry relative="1" x="-0.1333" y="2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fYslX2wZeY6poqH28ZIS-10" edge="1" parent="1" source="fYslX2wZeY6poqH28ZIS-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="fYslX2wZeY6poqH28ZIS-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fYslX2wZeY6poqH28ZIS-12" connectable="0" parent="fYslX2wZeY6poqH28ZIS-10" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Create / Delete / Start / Stop VM" vertex="1">
+          <mxGeometry relative="1" x="0.4276" y="3" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fYslX2wZeY6poqH28ZIS-11" edge="1" parent="1" source="fYslX2wZeY6poqH28ZIS-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="fYslX2wZeY6poqH28ZIS-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fYslX2wZeY6poqH28ZIS-14" connectable="0" parent="fYslX2wZeY6poqH28ZIS-11" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Query Cluster State / Ownership" vertex="1">
+          <mxGeometry relative="1" x="-0.4253" y="-3" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fYslX2wZeY6poqH28ZIS-19" edge="1" parent="1" source="fYslX2wZeY6poqH28ZIS-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="fYslX2wZeY6poqH28ZIS-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fYslX2wZeY6poqH28ZIS-22" connectable="0" parent="fYslX2wZeY6poqH28ZIS-19" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Logging&amp;nbsp; (write only)" vertex="1">
+          <mxGeometry relative="1" x="-0.37" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fYslX2wZeY6poqH28ZIS-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Windows Service&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Hyper-V VDI Auto Scaling Service&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="200" x="324" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="fYslX2wZeY6poqH28ZIS-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Hyper-V" vertex="1">
+          <mxGeometry height="100" width="200" x="94" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="fYslX2wZeY6poqH28ZIS-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;dashed=1;" value="Failover Cluster Service" vertex="1">
+          <mxGeometry height="100" width="200" x="368" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="fYslX2wZeY6poqH28ZIS-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Remote Desktop Services Connection Broker" vertex="1">
+          <mxGeometry height="60" width="200" x="84" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="fYslX2wZeY6poqH28ZIS-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Configuration Store" vertex="1">
+          <mxGeometry height="60" width="200" x="544" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="fYslX2wZeY6poqH28ZIS-18" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Windows Event Log" vertex="1">
+          <mxGeometry height="60" width="200" x="494" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="fYslX2wZeY6poqH28ZIS-23" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 8px;&quot;&gt;Only when running in cluster mode&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="140" x="368" y="180" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
