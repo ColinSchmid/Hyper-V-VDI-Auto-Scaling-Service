@@ -1,5 +1,6 @@
 ﻿using HyperV.VDIAutoScaling.Core.Configuration;
 using HyperV.VDIAutoScaling.Core.Models;
+using System.Security.Cryptography.X509Certificates;
 using System.Text.Json;
 
 namespace HyperV.VDIAutoScaling.Service.Configuration
@@ -12,6 +13,14 @@ namespace HyperV.VDIAutoScaling.Service.Configuration
         public FileScalingConfigProvider(string ConfigPath)
         {
             _configPath = ConfigPath;
+
+            if (!File.Exists(ConfigPath))
+            {
+                throw new FileNotFoundException(
+                    $"Scaling config not found at {_configPath}. " +
+                    "Service will not start without a vaild configuration."
+                    );
+            }
         }
         public ScalingConfig GetConfig()
         {
@@ -31,7 +40,6 @@ namespace HyperV.VDIAutoScaling.Service.Configuration
 
                 _lastWriteTime = fileInfo.LastWriteTimeUtc;
             }
-
 
             return _cachedConfig;
         }

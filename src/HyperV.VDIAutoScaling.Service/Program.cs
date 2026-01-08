@@ -4,10 +4,16 @@ using HyperV.VDIAutoScaling.Core.Engines;
 using HyperV.VDIAutoScaling.Core.Planning;
 using HyperV.VDIAutoScaling.Core.Configuration;
 using HyperV.VDIAutoScaling.Service.Configuration;
+using HyperV.VDIAutoScaling.Core.Models;
 
 var builder = Host.CreateApplicationBuilder(args);
 
-var configPath = @"C:\ProgramData\HyperVVDIAutoScaling\scaling.json";
+var configDirectory = builder.Configuration["ScalingConfig:Directory"]
+    ?? throw new InvalidOperationException(
+        "ScalingConfig:Directory not configured"
+    );
+
+var configPath = Path.Combine(configDirectory, "scaling.config");
 
 builder.Services.AddSingleton<IScalingPolicy, DefaultScalingPolicy>();
 builder.Services.AddSingleton<IScalingEngine, DefaultScalingEngine>();
