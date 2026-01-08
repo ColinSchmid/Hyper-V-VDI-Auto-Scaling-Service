@@ -8,24 +8,30 @@ namespace HyperV.VDIAutoScaling.Service.Configuration
     {
         private readonly string _configPath;
         private ScalingConfig? _cachedConfig;
+        private DateTime _lastWriteTime;
         public FileScalingConfigProvider(string ConfigPath)
         {
             _configPath = ConfigPath;
         }
         public ScalingConfig GetConfig()
         {
-            if(_cachedConfig != null)
-                return _cachedConfig;
+            var fileInfo = new FileInfo(_configPath);
 
-            if (!File.Exists(_configPath))
+            if (!fileInfo.Exists)
                 throw new FileNotFoundException(
                     $"ScaliingConfig not found at {_configPath}"
                 );
 
-            var json = File.ReadAllText(_configPath);
+            if (_cachedConfig == null || fileInfo.LastWriteTimeUtc > _lastWriteTime)
+            {
+                var json = File.ReadAllText(_configPath);
 
-            _cachedConfig = JsonSerializer.Deserialize<ScalingConfig>(json)
-                ?? throw new InvalidOperationException("Invalid scaling config");
+                _cachedConfig = JsonSerializer.Deserialize<ScalingConfig>(json)
+                    ?? throw new InvalidOperationException("Invalid scaling config");
+
+                _lastWriteTime = fileInfo.LastWriteTimeUtc;
+            }
+
 
             return _cachedConfig;
         }
