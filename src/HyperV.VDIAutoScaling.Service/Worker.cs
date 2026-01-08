@@ -15,9 +15,11 @@ public class Worker : BackgroundService
         {
             if (_logger.IsEnabled(LogLevel.Information))
             {
-                _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+                _logger.LogInformation("Scaling cycle triggered");
             }
-            await Task.Delay(1000, stoppingToken);
+            //_scalingEngine.RunAsync(stoppingToken);
+
+            await Task.Delay(TimeSpan.FromSeconds(30), stoppingToken);
         }
     }
 }

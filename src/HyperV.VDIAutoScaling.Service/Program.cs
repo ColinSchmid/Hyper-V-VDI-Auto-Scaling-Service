@@ -1,4 +1,5 @@
 using HyperV.VDIAutoScaling.Service;
+using HyperV.VDIAutoScaling.Core.Policies;
 
 var builder = Host.CreateApplicationBuilder(args);
 
