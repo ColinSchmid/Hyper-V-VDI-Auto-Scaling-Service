@@ -12,7 +12,7 @@ namespace HyperV.VDIAutoScaling.Core.Policies
                 return new PolicyDecision(
                     ScalingAction.ScaleOut,
                     context.DesiredVdiCount - context.CurrentVdiCount,
-                    "Desired capacity is higher than current"
+                    "Desired capacity is lower than current"
                 );
             }
 
@@ -21,7 +21,7 @@ namespace HyperV.VDIAutoScaling.Core.Policies
                 return new PolicyDecision(
                     ScalingAction.ScaleIn,
                     context.CurrentVdiCount - context.DesiredVdiCount,
-                    "Desired capacity is lower than current"
+                    "Desired capacity is higher than current"
                 );
             }
 

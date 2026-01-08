@@ -1,12 +1,16 @@
+using HyperV.VDIAutoScaling.Core.Engines;
+
 namespace HyperV.VDIAutoScaling.Service;
 
 public class Worker : BackgroundService
 {
     private readonly ILogger<Worker> _logger;
+    private readonly IScalingEngine _scalingEngine;
 
-    public Worker(ILogger<Worker> logger)
+    public Worker(ILogger<Worker> logger, IScalingEngine scalingEngine)
     {
         _logger = logger;
+        _scalingEngine = scalingEngine;
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -15,11 +19,12 @@ public class Worker : BackgroundService
         {
             if (_logger.IsEnabled(LogLevel.Information))
             {
-                _logger.LogInformation("Scaling cycle triggered");
+                _logger.LogInformation("Scaling cycle started");
             }
-            //_scalingEngine.RunAsync(stoppingToken);
 
-            await Task.Delay(TimeSpan.FromSeconds(30), stoppingToken);
+            await _scalingEngine.RunAsync(stoppingToken);
+
+            await Task.Delay(TimeSpan.FromSeconds(1), stoppingToken);
         }
     }
 }
