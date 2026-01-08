@@ -17,14 +17,11 @@ public class Worker : BackgroundService
     {
         while (!stoppingToken.IsCancellationRequested)
         {
-            if (_logger.IsEnabled(LogLevel.Information))
-            {
-                _logger.LogInformation("Scaling cycle started");
-            }
+            _logger.LogInformation("Scaling cycle started");
 
             await _scalingEngine.RunAsync(stoppingToken);
 
-            await Task.Delay(TimeSpan.FromSeconds(1), stoppingToken);
+            await Task.Delay(TimeSpan.FromSeconds(5), stoppingToken);
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using HyperV.VDIAutoScaling.Core.Models;
-using System.Security.Cryptography.X509Certificates;
 
 namespace HyperV.VDIAutoScaling.Core.Policies
 {
