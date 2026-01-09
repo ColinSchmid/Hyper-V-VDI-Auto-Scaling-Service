@@ -31,9 +31,11 @@ namespace HyperV.VDIAutoScaling.Core.Engines
         {
             var activeSessions = _metricsProvider.GetActiveSessions();
 
-            _logger.LogDebug("Active Sessions reported: {Sessions}", activeSessions);
+            _logger.LogDebug("Active sessions reported: {Sessions}", activeSessions);
 
             var currentVdiCount = _inventoryProvider.GetCurrentVdiCount();
+
+            _logger.LogDebug("Current VDI count reported: {Count}", currentVdiCount);
 
             _logger.LogDebug("Starting scaling evaluation: CurrentVDIs={Current}, ActiveSessions={Sessions}", currentVdiCount, activeSessions);
 
