@@ -1,5 +1,6 @@
 using HyperV.VDIAutoScaling.Core.Configuration;
 using HyperV.VDIAutoScaling.Core.Engines;
+using HyperV.VDIAutoScaling.Service.Runtime;
 
 namespace HyperV.VDIAutoScaling.Service;
 
@@ -18,6 +19,8 @@ public class Worker : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
+        RuntimeGuard.EnsureRunningWithSufficientPrivileges();
+
         while (!stoppingToken.IsCancellationRequested)
         {
             _logger.LogInformation("Scaling cycle started");
