@@ -7,6 +7,8 @@ using HyperV.VDIAutoScaling.Service.Configuration;
 using HyperV.VDIAutoScaling.Core.Metrics;
 using HyperV.VDIAutoScaling.Adapters.Metrics;
 using System.Runtime.Versioning;
+using HyperV.VDIAutoScaling.Core.Inventory;
+using HyperV.VDIAutoScaling.Adapters.Inventory;
 
 [assembly: SupportedOSPlatform("windows")]
 
@@ -24,6 +26,7 @@ builder.Services.AddSingleton<IScalingEngine, DefaultScalingEngine>();
 builder.Services.AddSingleton<ICapacityPlaner, DefaultCapacityPlaner>();
 builder.Services.AddSingleton<IMetricsProvider, RdsMetricsProvider>();
 builder.Services.AddSingleton<IScalingConfigProvider>(_ => new FileScalingConfigProvider(configPath));
+builder.Services.AddSingleton<IInventoryProvider, HyperVInventoryProvider>();
 
 builder.Services.AddHostedService<Worker>();
 

@@ -6,6 +6,7 @@ using HyperV.VDIAutoScaling.Core.Models;
 using HyperV.VDIAutoScaling.Core.Planning;
 using HyperV.VDIAutoScaling.Core.Policies;
 using HyperV.VDIAutoScaling.Core.Metrics;
+using HyperV.VDIAutoScaling.Core.Inventory;
 
 namespace HyperV.VDIAutoScaling.Core.Engines
 {
@@ -14,14 +15,16 @@ namespace HyperV.VDIAutoScaling.Core.Engines
         private readonly IScalingPolicy _policy;
         private readonly ICapacityPlaner _capacityPlaner;
         private readonly IMetricsProvider _metricsProvider;
+        private readonly IInventoryProvider _inventoryProvider;
         private readonly ILogger<DefaultScalingEngine> _logger;
 
-        public DefaultScalingEngine(ILogger<DefaultScalingEngine> logger, IScalingPolicy policy, ICapacityPlaner capacityPlaner, IMetricsProvider metricsProvider)
+        public DefaultScalingEngine(ILogger<DefaultScalingEngine> logger, IScalingPolicy policy, ICapacityPlaner capacityPlaner, IMetricsProvider metricsProvider, IInventoryProvider inventoryProvider)
         {
             _logger = logger;
             _policy = policy;
             _capacityPlaner = capacityPlaner;
             _metricsProvider = metricsProvider;
+            _inventoryProvider = inventoryProvider;
         }
 
         public Task RunAsync(CancellationToken cancellationToken)
@@ -30,8 +33,7 @@ namespace HyperV.VDIAutoScaling.Core.Engines
 
             _logger.LogDebug("Active Sessions reported: {Sessions}", activeSessions);
 
-            //Dummy value for testing
-            var currentVdiCount = 7;
+            var currentVdiCount = _inventoryProvider.GetCurrentVdiCount();
 
             _logger.LogDebug("Starting scaling evaluation: CurrentVDIs={Current}, ActiveSessions={Sessions}", currentVdiCount, activeSessions);
 
