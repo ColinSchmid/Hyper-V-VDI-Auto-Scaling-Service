@@ -26,10 +26,28 @@ jobs:
       run: |
         dotnet publish src/HyperV.VDIAutoScaling.Service `
           -c Release `
-          -o artifacts/service
+          -o artifacts/service `
+          /p:DebugType=portable
 
-    - name: Upload artifact
+    - name: Collect symbols
+      run: |
+        New-Item -ItemType Directory artifacts/symbols -Force
+        Get-ChildItem artifacts/service -Recurse -Include *.pdb |
+          Copy-Item -Destination artifacts/symbols
+
+    - name: Remove symbols from deploy artifact
+      run: |
+        Get-ChildItem artifacts/service -Recurse -Include *.pdb |
+          Remove-Item -Force
+
+    - name: Upload deploy artifact
       uses: actions/upload-artifact@v4
       with:
-        name: HyperVVDIAutoScaling-Service
+        name: HyperVVDIAutoScalingService-Deploy
         path: artifacts/service
+
+    - name: Upload symbol artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: HyperVVDIAutoScalingService-Symbol
+        path: artifacts/symbols
